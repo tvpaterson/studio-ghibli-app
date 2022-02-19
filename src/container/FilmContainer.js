@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import FilmList from "../component/FilmList";
+import FilmSelect from "../component/FilmSelect";
 import FilterItems from "../component/FilterItems";
 
 const FilmContainer = () => {
@@ -29,7 +30,9 @@ const FilmContainer = () => {
     return(
         <div className="film-container">
         <FilterItems handleChange={filter}/>
+        
         <FilmList films={films}/>
+        
         </div>
     )
   
