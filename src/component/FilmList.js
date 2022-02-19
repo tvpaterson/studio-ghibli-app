@@ -1,4 +1,4 @@
-import FilmItems from "./Film";
+import FilmItems from "./FilmItems";
 
 const FilmList = ({films}) => {
 
@@ -7,9 +7,9 @@ const FilmList = ({films}) => {
     })
 
     return(
-        <>
+        <div className="film-list">
         {filmItems}
-        </>
+        </div>
     )
   
 }
