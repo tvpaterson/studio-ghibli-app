@@ -1,16 +1,9 @@
-import React from 'react';
-
-const FilmItems = ({film, onFilmClick}) => {
-
-  const handleClick = function(){
-    onFilmClick(film);
-  }
-
-
-  return( 
-    <div className='list-selector'>
-    <li onClick={handleClick}>{film.title}</li>
-    </div>
+const FilmItems = ({film}) => {
+    return(
+        <div className="film">
+            <img alt="film-cover"src={film["image"]}/>
+            <h3>{film.title} ({film.release_date})</h3>
+        </div>
     )
 }
 

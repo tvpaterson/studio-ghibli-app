@@ -31,8 +31,10 @@ const FilmContainer = () => {
     return(
         <div className="film-container">
             <FilmSelect films={films} onFilmSelected={onFilmSelected}/>
-            {selectedFilm ? <FilmDetail film={selectedFilm} /> : null}
-            <FilmList films={films}/>
+            <div className="film-sub-container">
+                {selectedFilm ? <FilmDetail film={selectedFilm} /> : <FilmList films={films}/>}
+            </div>
+            
 
         </div>
     )

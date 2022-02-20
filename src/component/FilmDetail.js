@@ -1,7 +1,9 @@
 const FilmDetail = ({film}) => {
     return(
-        <div className="film">
-            <img alt="film-cover"src={film["image"]}/>
+        <div className="main-container">
+            <div className="image-container">
+                <img className="film-cover" alt="film-cover"src={film["image"]}/>
+            </div>
             <div className="text-container">
                 <h3>{film.title}</h3>
                 <p>{film.description}</p>
