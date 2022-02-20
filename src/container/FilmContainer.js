@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react"
 import FilmList from "../component/FilmList";
 import FilmSelect from "../component/FilmSelect";
-import FilterItems from "../component/FilterItems";
+import FilmDetail from "../component/FilmDetail";
+
 
 const FilmContainer = () => {
 
     const [films, setFilms] = useState([]);
-    const [filteredFilms, setFilteredFilms] = useState([]);
+    const [selectedFilm, setSelectedFilm] = useState(null);
 
 
     useEffect(() => {
@@ -19,20 +20,20 @@ const FilmContainer = () => {
         .then(films => setFilms(films))
     }
 
-    const filter = (searchFilm) => {
-        const lowerSearch = searchFilm.toLowerCase();
-        const filteredFilms = films.filter((film) => {
-          return film.title.toLowerCase().indexOf(lowerSearch) > -1;
-        });
-        setFilteredFilms(filteredFilms);
-      }
+    const onFilmClick = function(film){
+        setSelectedFilm(film);
+    }
+
+    const onFilmSelected = function(film){
+        setSelectedFilm(film);
+    }
 
     return(
         <div className="film-container">
-        <FilterItems handleChange={filter}/>
-        
-        <FilmList films={films}/>
-        
+            <FilmSelect films={films} onFilmSelected={onFilmSelected}/>
+            {selectedFilm ? <FilmDetail film={selectedFilm} /> : null}
+            <FilmList films={films}/>
+
         </div>
     )
   
